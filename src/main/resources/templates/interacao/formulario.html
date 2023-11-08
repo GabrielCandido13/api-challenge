@@ -1,0 +1,58 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div th:replace="~{base :: titulo('Nova Interacao')}"></div>
+		<div class="card mt-3">
+			<form th:object="${requisicaoNovoInteracao}" class="card-body" action="/interacao/novo" method="POST">
+				
+				<div class="form-group">
+					<label for="dataInteracao">Data de Interação</label> 
+					<input th:field="*{data_interacao}" th:errorclass="is-invalid" class="form-control" placeholder="data de interação">
+					<small>Informe a data de interação.</small>
+					<div th:errors="*{data_interacao}" class="invalid-feedback">Erro da data de interação</div>
+				</div>
+				<div class="form-group">
+					<label for="tipo">Tipo</label> 
+					<input th:field="*{tipo}" th:errorclass="is-invalid" class="form-control" placeholder="tipo">
+					<small>Informe o tipo.</small>
+					<div th:errors="*{tipo}" class="invalid-feedback">Erro do tipo</div>
+				</div>
+				<div class="form-group">
+					<label for="prioridade">Prioridade</label> 
+					<input th:field="*{prioridade}" th:errorclass="is-invalid" class="form-control" placeholder="prioridade">
+					<small>Informe a prioridade.</small>
+					<div th:errors="*{prioridade}" class="invalid-feedback">Erro da prioridade</div>
+				</div>
+				<div class="form-group">
+					<label for="equipeResponsavel">Equipe Responsável</label> 
+					<input th:field="*{equipe_responsavel}" th:errorclass="is-invalid" class="form-control" placeholder="equipe responsável">
+					<small>Informe a equipe responsável.</small>
+					<div th:errors="*{equipe_responsavel}" class="invalid-feedback">Erro da equipe responsável</div>
+				</div>
+				<div class="form-group">
+					<label for="telefoneEquipeResponsavel">Telefone Equipe Responsável</label> 
+					<input th:field="*{telefone_equipe_responsavel}" th:errorclass="is-invalid" class="form-control" placeholder="telefone equipe responsável">
+					<small>Informe o telefone da equipe responsável.</small>
+					<div th:errors="*{telefone_equipe_responsavel}" class="invalid-feedback">Erro do telefone da equipe responsável</div>
+				</div>
+				<div class="form-group">
+					<label for="emailEquipeResponsavel">Email Equipe Responsável</label> 
+					<input th:field="*{email_equipe_responsavel}" th:errorclass="is-invalid" class="form-control" placeholder="email equipe responsável">
+					<small>Informe o email da equipe responsável.</small>
+					<div th:errors="*{email_equipe_responsavel}" class="invalid-feedback">Erro do email da equipe responsável</div>
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label>
+					<textarea th:field="*{descricao}" class="form-control" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
+				</div>
+
+				<button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

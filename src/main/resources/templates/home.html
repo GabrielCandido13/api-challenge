@@ -1,0 +1,65 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+
+    <div th:replace="~{base :: logo}"></div>
+
+    <div class="container">
+
+        <div th:replace="~{base :: titulo('Interações do Sistema')}"></div>
+
+        <nav class="navbar navbar-expand bg-body-tertiary d-flex justify-content-between mb-3">
+            <div class="d-flex">
+                <a href="/interacao/formulario" class="me-3">
+                    <button class="btn btn-outline-secondary">Nova Interação</button>
+                </a>
+                <a href="/suporte/formularioSuporte">
+                    <button class="btn btn-outline-secondary">Algum problema? Contate o Suporte aqui</button>
+                </a>
+            </div>
+        </nav>
+
+        <div class="card mb-3" th:each="interacao : ${interacoes}">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-sm-8 mb-3">                  
+                        <div>Data de Interacao</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.data_interacao}" value="data de interacao">
+                        </div>                          
+                        <div>Descricao</div>
+                        <div>
+                            <textarea class="form-control" th:text="${interacao.descricao}">descrição do produto</textarea>
+                        </div>
+                        <div>Tipo</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.tipo}" value="tipo do pedido">
+                        </div>
+                        <div>Prioridade</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.prioridade}" value="prioridade do pedido">
+                        </div>
+                        <div>Equipe Responsavel</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.equipe_responsavel}" value="equipe responsavel">
+                        </div>
+                        <div>Telefone da Equipe Responsavel</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.telefone_equipe_responsavel}" value="telefone da equipe responsavel">
+                        </div>
+                        <div>Email da Equipe Responsavel</div>
+                        <div>
+                            <input class="form-control" th:value="${interacao.email_equipe_responsavel}" value="email da equipe responsavel">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <div>
+                            <img class="img-fluid "src="https://i.imgur.com/qPHUsoM.png" width="600px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
